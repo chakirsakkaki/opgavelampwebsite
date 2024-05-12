@@ -7,14 +7,19 @@
 </head>
 <body>
     <header>
-        <h1>Simple HTML with PHP</h1>
+        <h1>testtabel classicmodels</h1>
     </header>
     <section>
-        <h2>Genereert willekeurig getal tussen 1 en 100</h2>
+        <h2>Hieronder zie je het tabel</h2>
         <?php
-            // Genereert willekeurig getal tussen 1 en 100
-            $random_number = rand(1, 100);
-            echo "<p>Willekeurig getal is: $random_number</p>";
+            echo " id | naam\n";
+            echo "+----+-----------\n";
+            $conn=new mysqli("localhost",root,chakir,classicmodels);
+            $query=$conn->query("SELECT lastName as achternaam, firstName as voornaam, email FROM employees;");
+            $result=$query->fetch_all();
+            foreach ($result as $row) {
+              echo "    ".$row[0]." | ".$row[1]."\n";           
+            }
         ?>
     </section>
 </body>
