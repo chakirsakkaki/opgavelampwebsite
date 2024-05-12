@@ -14,7 +14,7 @@
         <?php
             echo " id | naam\n";
             echo "+----+-----------\n";
-            $conn=new mysqli("localhost",root,chakir,classicmodels);
+            $conn=new mysqli("localhost","root","chakir","classicmodels");
             $query=$conn->query("SELECT lastName as achternaam, firstName as voornaam, email FROM employees;");
             $result=$query->fetch_all();
             foreach ($result as $row) {
